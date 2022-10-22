@@ -28,7 +28,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/technicians' element={<TechnicianList techies={techies} />}  />
             <Route path='/technicians/:id' element={<Technician />} />
-            <Route path='/customer_form' element={<CustomerForm />} />
+            <Route path='/customer_form' element={<CustomerForm techies={techies} />} />
             <Route path='/customer/:id' element={<Customer />} />
           </Routes>
       </header>

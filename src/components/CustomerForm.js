@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
- function CustomerForm() {
+ function CustomerForm({techies}) {
     const [customerData, setCustomerData] = useState({
       name: "",
       item: "",
@@ -9,24 +9,29 @@ import React, {useState, useEffect} from 'react'
       description: "",
       
     })
+
+    
   return (
     <div>
         <form>
-            <label for='name'> Name: </label>
-            <input type='text' name='name' /><br />
-            <label for='item'> Item: </label>
-            <input type='text' name='item' /><br />
-            <label for='item received'> Item Received Date: </label>
-            <input type='date' name='item received' /><br />
-            <label for='item returned'> Item Return Date: </label>
-            <input type='date' name='item returned' /><br />
-            <label for='description'> Description: </label>
-            <input type='text' name='description' />
+            <label > Name: </label>
+            <input type='text' name='name'  /><br />
+            <label > Item: </label>
+            <input type='text' name='item'  /><br />
+            <label > Item Received Date: </label>
+            <input type='date' name='item received'  /><br />
+            <label > Item Return Date: </label>
+            <input type='date' name='item returned'  /><br />
+            <label > Description: </label>
+            <input type='text' name='description'  />
             
-            <label for='technicians'>Technician Assigned:</label>
+            <label >Technician Assigned:</label>
             <select name="technicians" >
-                {}
+                {techies.map(techie => (
+                <option key={techie.id} value={techie.id}>{techie.name} </option>
+                ))}
             </select>
+            <input type='submit' />
         </form>
     </div>
   )

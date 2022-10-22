@@ -28,3 +28,5 @@ const linkStyles = {
     </div>
   )
 }
+
+export default NavBar

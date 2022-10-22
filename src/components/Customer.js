@@ -1,7 +1,7 @@
 import React from 'react'
 
  function Customer({customer, params}) {
-  debugger
+
   return (
     <div>
       <hr />

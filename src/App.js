@@ -1,7 +1,12 @@
 
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-
+import Home from './components/Home'
+import TechnicianList from './components/TechnicianList'
+import Technician from './components/Technician'
+import Customer from './components/Customer'
+import NavBar from './components/NavBar';
+import CustomerForm from './components/CustomerForm';
 
 function App() {
   return (

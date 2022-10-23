@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import CustomerList from './Customer'
+import TechiesCustomer from './TechiesCustomer'
 import {useParams} from 'react-router-dom'
 
  function Technician() {
@@ -14,7 +14,7 @@ import {useParams} from 'react-router-dom'
     .then(res => res.json())
     .then(data => setTechies(data))
   }, [params.id] )
-  const customersList = techies.customers.map((customer)=> <CustomerList key={customer.id} customer={customer} params={params}/>)
+  const customersList = techies.customers.map((customer)=> <TechiesCustomer key={customer.id} customer={customer} params={params}/>)
   return (
    
     <div>

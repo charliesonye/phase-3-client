@@ -34,11 +34,11 @@ import React, {useState, useEffect} from 'react'
             <input type='text' name='description' value={customerData.description} onChange={handleChange} />
             
             <label >Technician Assigned:</label>
-            <select name="technicians" >
+            {/* <select name="technicians" >
                 {techies.map(techie => (
                 <option key={techie.id}  value={customerData.technician_id} onChange={handleChange}>{techie.name} </option>
                 ))}
-            </select>
+            </select> */}
             <input type='submit' />
         </form>
     </div>

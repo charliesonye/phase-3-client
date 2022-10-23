@@ -22,6 +22,9 @@ const linkStyles = {
       <NavLink to='/technicians' style={linkStyles}> 
         Technicians
       </NavLink>
+      <NavLink to='/customers' style={linkStyles}>
+        List Of Customers
+      </NavLink>
       <NavLink to='/customer_form' style={linkStyles}>
         New Customer
       </NavLink>

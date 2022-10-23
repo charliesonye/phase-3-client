@@ -5,9 +5,10 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './components/Home'
 import TechnicianList from './components/TechnicianList'
 import Technician from './components/Technician'
-import Customer from './components/Customer'
+import TechiesCustomer from './components/TechiesCustomer'
 import NavBar from './components/NavBar';
 import CustomerForm from './components/CustomerForm';
+import CustomerList from './components/CustomerList'
 
 function App() {
 
@@ -18,6 +19,10 @@ function App() {
     .then(res => res.json())
     .then(data => setTechies(data))
   }, [])
+
+  function handleAddCustomer(newCustomer){
+
+  }
   
   return (
     <div className="App">
@@ -29,7 +34,8 @@ function App() {
             <Route path='/technicians' element={<TechnicianList techies={techies} />}  />
             <Route path='/technicians/:id' element={<Technician />} />
             <Route path='/customer_form' element={<CustomerForm techies={techies} />} />
-            <Route path='/customer/:id' element={<Customer />} />
+            <Route path='/customers/:id' element={<TechiesCustomer />} />
+            <Route path='/customers' element={<CustomerList />} />
           </Routes>
       </header>
       </Router>

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Customer from './Customer'
 
 function CustomerList() {
     const [customers, setCustomers] = useState([])
@@ -9,9 +10,14 @@ function CustomerList() {
         .then(data => setCustomers(data))
     }, [])
 
-    
+    const customersList = customers.map(customer =>(
+        <Customer key={customer.id} customer={customer} />
+      ))
+
   return (
-    <div>CustomerList</div>
+    <div>
+        {customersList}
+    </div>
   )
 }
 

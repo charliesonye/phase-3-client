@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 
  function CustomerForm({techies}) {
     const [customerData, setCustomerData] = useState({
@@ -7,15 +7,20 @@ import React, {useState, useEffect} from 'react'
       item_received: "",
       item_returned: "",
       description: "",
-      technician_id: ""
     })
+  
+    const technicianNames = techies.map((techie)=> techie.name)
+    const [techIds, setTechIds] = useState("")
+    
 
     function handleChange(e) {
       setCustomerData({
         ...customerData,
         [e.target.name]: e.target.value
       })
-      
+    }
+    function selectChange(e){
+      setTechIds(e.target.value)
     }
   return (
     <div>
@@ -34,11 +39,12 @@ import React, {useState, useEffect} from 'react'
             <input type='text' name='description' value={customerData.description} onChange={handleChange} />
             
             <label >Technician Assigned:</label>
-            {/* <select name="technicians" >
+            <select name="technicians" onChange={selectChange} >
+                <option value="prompt"  > Select Technician</option>
                 {techies.map(techie => (
-                <option key={techie.id}  value={customerData.technician_id} onChange={handleChange}>{techie.name} </option>
+                <option key={techie.id}  value={techie.id} >{techie.name} </option>
                 ))}
-            </select> */}
+            </select>
             <input type='submit' />
         </form>
     </div>

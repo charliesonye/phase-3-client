@@ -25,7 +25,7 @@ import {useParams} from 'react-router-dom'
 
       <h1>List Of Customers</h1>
       {customersList}
-
+    
     </div>
   )
 }

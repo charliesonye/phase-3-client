@@ -13,7 +13,7 @@ function CustomerList({customers}) {
 
    
 
-    const customersList = customers.map(customer =>(
+    const customersList = [...customers].reverse().map(customer =>(
         <Customer key={customer.id} customer={customer} />
       ))
 

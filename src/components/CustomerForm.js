@@ -32,7 +32,16 @@ import React, {useState} from 'react'
           body: JSON.stringify(newCustomer)
       })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        onAddCustomer(data)
+        setCustomerData({
+          name: "",
+          item: "",
+          item_received: "",
+          item_returned: "",
+          description: ""
+        })
+      })
 
       }
 

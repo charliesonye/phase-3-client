@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
- function CustomerForm({techies}) {
+ function CustomerForm({techies, onAddCustomer}) {
     const [customerData, setCustomerData] = useState({
       name: "",
       item: "",
@@ -9,8 +9,33 @@ import React, {useState} from 'react'
       description: "",
     })
   
-    const technicianNames = techies.map((techie)=> techie.name)
+ 
     const [techIds, setTechIds] = useState("")
+    
+    function handleSubmitCustomer(e){
+      e.preventDefault()
+
+      const newCustomer = {
+        name: customerData.name,
+        item: customerData.item,
+        item_received: customerData.item_received,
+        item_returned: customerData.item_returned,
+        description: customerData.description,
+        technician_id: techIds
+      }
+
+      fetch("http://localhost:9292/customers", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newCustomer)
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+
+      }
+
     
 
     function handleChange(e) {
@@ -26,7 +51,7 @@ import React, {useState} from 'react'
     <div>
 
         <h1><u>Customer Form:</u></h1>
-        <form>
+        <form onSubmit= {handleSubmitCustomer}>
             <label > Name: </label>
             <input type='text' name='name' value={customerData.name} onChange={handleChange} /><br />
             <label > Item: </label>

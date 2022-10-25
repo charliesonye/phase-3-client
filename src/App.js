@@ -13,6 +13,7 @@ import CustomerList from './components/CustomerList'
 function App() {
 
   const [techies, setTechies] = useState([])
+  const [customers, setCustomers] = useState([])
 
   useEffect(()=> {
     fetch('http://localhost:9292/technicians')
@@ -20,9 +21,17 @@ function App() {
     .then(data => setTechies(data))
   }, [])
 
+  useEffect(()=>{
+    fetch('http://localhost:9292/customers')
+    .then(res => res.json())
+    .then(data => setCustomers(data))
+}, [])
+  
   function handleAddCustomer(newCustomer){
-
+    setCustomers([...customers, newCustomer])
   }
+  
+ 
   
   return (
     <div className="App">
@@ -31,11 +40,22 @@ function App() {
       <header className="App-header">
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/technicians' element={<TechnicianList techies={techies} />}  />
+            <Route path='/technicians' element={<TechnicianList 
+              techies={techies} 
+              />}  
+            />
             <Route path='/technicians/:id' element={<Technician />} />
-            <Route path='/customer_form' element={<CustomerForm techies={techies} />} />
+            <Route path='/customer_form' element={<CustomerForm 
+              techies={techies} 
+              customers={customers}  
+              onAddCustomer={handleAddCustomer}
+              />} 
+            />
             <Route path='/customers/:id' element={<TechiesCustomer />} />
-            <Route path='/customers' element={<CustomerList />} />
+            <Route path='/customers' element={<CustomerList 
+              customers={customers} 
+              />} 
+            />
           </Routes>
       </header>
       </Router>

@@ -3,7 +3,7 @@ import TechiesCustomer from './TechiesCustomer'
 import EditTechnician from './EditTechnician'
 import {useParams} from 'react-router-dom'
 
- function Technician({onUpdateTechie}) {
+ function Technician({onUpdateTechie, onDeleteTechie}) {
   const [techie, setTechie]= useState({
     customers:[]
   })
@@ -16,6 +16,17 @@ import {useParams} from 'react-router-dom'
     .then(res => res.json())
     .then(data => setTechie(data))
   }, [params.id] )
+
+  function handleDelete(){
+    fetch(`http://localhost:9292/technicians/${params.id}`,{
+      method: 'DELETE',
+    })
+    onDeleteTechie(params.id)
+  }
+
+  function toggleEditScreen(){
+    setIsEditing(!isEditing)
+  }
   const customersList = techie.customers.map((customer)=> <TechiesCustomer key={customer.id} customer={customer} params={params}/>)
   return (
 
@@ -35,8 +46,8 @@ import {useParams} from 'react-router-dom'
          <h3>Experience: {techie.company_experience}</h3><br/>
         </>
         )}
-      <button onClick={() => setIsEditing(isEditing => !isEditing)}> ✏️</button>
-      <button> 🗑️</button>
+      <button onClick={toggleEditScreen}> ✏️</button>
+      <button onClick={handleDelete} > 🗑️</button>
 
       <h1>List Of Customers</h1>
       {customersList}

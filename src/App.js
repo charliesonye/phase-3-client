@@ -42,6 +42,10 @@ function App() {
     setCustomers(updatedTechies)
   }
  
+  function handleDeleteTechie(id){
+    const newListOfTechies = techies.filter(techie => techie.id === id)
+    setTechies(newListOfTechies)
+  }
   
   return (
     <div className="App">
@@ -56,6 +60,7 @@ function App() {
             />
             <Route path='/technicians/:id' element={<Technician
               onUpdateTechie={handleUpdateTechie}
+              onDeleteTechie={handleDeleteTechie}
               />} />
             <Route path='/customer_form' element={<CustomerForm 
               techies={techies} 

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
  function CustomerForm({techies, onAddCustomer}) {
     const [customerData, setCustomerData] = useState({
@@ -9,6 +10,7 @@ import React, {useState} from 'react'
       description: "",
     })
   
+    const navigate = useNavigate()
  
     const [techIds, setTechIds] = useState("")
     
@@ -41,6 +43,7 @@ import React, {useState} from 'react'
           item_returned: "",
           description: ""
         })
+        navigate('/customers')
       })
 
       }

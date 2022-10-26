@@ -31,6 +31,16 @@ function App() {
     setCustomers([...customers, newCustomer])
   }
   
+  function handleUpdateTechie(updatedObj){
+    const updatedTechies = techies.map((techie) =>{
+      if(techie.id === updatedObj.id){
+        return updatedObj
+      }else {
+        return techie
+      }
+    })
+    setCustomers(updatedTechies)
+  }
  
   
   return (
@@ -44,7 +54,9 @@ function App() {
               techies={techies} 
               />}  
             />
-            <Route path='/technicians/:id' element={<Technician />} />
+            <Route path='/technicians/:id' element={<Technician
+              onUpdateTechie={handleUpdateTechie}
+              />} />
             <Route path='/customer_form' element={<CustomerForm 
               techies={techies} 
               customers={customers}  

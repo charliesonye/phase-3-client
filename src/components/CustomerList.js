@@ -1,17 +1,10 @@
 // import React, {useState, useEffect} from 'react'
 import Customer from './Customer'
-// import CustomerForm from './CustomerForm'
+
 
 function CustomerList({customers}) {
-    // const [customers, setCustomers] = useState([])
-
-    // useEffect(()=>{
-    //     fetch('http://localhost:9292/customers')
-    //     .then(res => res.json())
-    //     .then(data => setCustomers(data))
-    // }, [])
-
    
+
 
     const customersList = [...customers].reverse().map(customer =>(
         <Customer key={customer.id} customer={customer} />
@@ -19,7 +12,16 @@ function CustomerList({customers}) {
 
   return (
     <div>
-        
+        <form>
+        <h3>Filter:</h3>
+        <select> 
+          
+          <option>Resolved</option>
+          <option>Unresolved</option>
+
+        </select>
+
+        </form>
         {customersList}
       
     </div>

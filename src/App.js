@@ -14,6 +14,7 @@ function App() {
 
   const [techies, setTechies] = useState([])
   const [customers, setCustomers] = useState([])
+  const [searchText, setSearchText] = useState("")
 
   useEffect(()=> {
     fetch('http://localhost:9292/technicians')
@@ -50,6 +51,10 @@ function App() {
     const newListOfTechies = techies.filter(techie => techie.id === id)
     setTechies(newListOfTechies)
   }
+
+  const displayedCustomers = customers.filter((customer)=> {
+
+  }) 
   
   return (
     <div className="App">

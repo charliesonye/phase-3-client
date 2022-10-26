@@ -12,6 +12,7 @@ import React from 'react'
               <h2>Description: {customer.description}</h2>
               <h2>Item Received: {customer.item_received}</h2>
               <h2>Item Returned: {customer.item_returned}</h2>
+              <h2>Service Status: {customer.item_received < customer.item_returned ? "Resolved" : "Pending"}</h2>
               <h2>Technician Id: {customer.technician_id}</h2>
 
         <hr/>

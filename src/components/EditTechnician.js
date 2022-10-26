@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 
  function EditTechnician({techie, onUpdateTechie}) {
     const [editedTechId, setEditedTechId] = useState(techie.title)
     const params = useParams()
+    const navigate = useNavigate()
 
   function handleSubmit(e){
     e.preventDefault()
@@ -13,10 +14,14 @@ import {useParams} from 'react-router-dom'
       headers: {
         'Content-Type': "application/json"
       },
-      body: JSON.stringify({title: techie.title})
+      body: JSON.stringify({title: editedTechId})
     })
     .then(res => res.json())
-    .then(data => onUpdateTechie(data))
+    .then(data => {
+      onUpdateTechie(data)
+      navigate(`/technicians`)
+    })
+    
   }
     
     return (

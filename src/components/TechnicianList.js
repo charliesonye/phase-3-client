@@ -1,7 +1,8 @@
 
 import TechnicianLink from './TechnicianLink'
+import TechieForm from './TechieForm'
 
- function TechnicianList({techies}) {
+ function TechnicianList({techies, onAddTechie}) {
 
   
   const techiesList = techies.map(techie =>  <TechnicianLink techie={techie} key={techie.id} />)
@@ -9,6 +10,7 @@ import TechnicianLink from './TechnicianLink'
   
   return (
     <div>
+      <TechieForm onAddTechie={onAddTechie} />
       {techiesList}
     </div>
   )

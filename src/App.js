@@ -30,6 +30,10 @@ function App() {
   function handleAddCustomer(newCustomer){
     setCustomers([...customers, newCustomer])
   }
+
+  function handleAddTechie(newTechie){
+    setTechies([...techies, newTechie])
+  }
   
   function handleUpdateTechie(updatedObj){
     const updatedTechies = techies.map((techie) =>{
@@ -56,6 +60,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/technicians' element={<TechnicianList 
               techies={techies} 
+              onAddTechie={handleAddTechie}
               />}  
             />
             <Route path='/technicians/:id' element={<Technician

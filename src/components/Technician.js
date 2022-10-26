@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import TechiesCustomer from './TechiesCustomer'
 import EditTechnician from './EditTechnician'
+
 import {useParams} from 'react-router-dom'
 
  function Technician({onUpdateTechie, onDeleteTechie}) {
@@ -32,6 +33,7 @@ import {useParams} from 'react-router-dom'
 
     
     <div>
+      
      
       {isEditing ? (
           <EditTechnician

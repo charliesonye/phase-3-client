@@ -15,6 +15,7 @@ function App() {
   const [techies, setTechies] = useState([])
   const [customers, setCustomers] = useState([])
   const [searchText, setSearchText] = useState("")
+  const [customerfilter, setCustomerFilter] = useState()
 
   useEffect(()=> {
     fetch('http://localhost:9292/technicians')
@@ -52,9 +53,11 @@ function App() {
     setTechies(newListOfTechies)
   }
 
-  const displayedCustomers = customers.filter((customer)=> {
+  // const displayedCustomers = customers.filter((customer)=> {
 
-  }) 
+  // }) 
+  // This variable will be used for a search bar/filtering ability
+  // Refer to Chatterbox lab for template and use nullish coalescing or logical and operator(??, &&)
   
   return (
     <div className="App">

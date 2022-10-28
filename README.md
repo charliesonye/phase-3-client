@@ -27,7 +27,6 @@ To run locally:
 ```
 $ cd p3-project
 $ npm install
-$ json-server --watch db.json
 $ npm start
 
 ```

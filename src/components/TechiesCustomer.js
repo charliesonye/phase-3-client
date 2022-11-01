@@ -3,7 +3,7 @@ import React from 'react'
  function Customer({customer, params}) {
 
   return (
-    <div>
+    <div className="Techies-customer-card">
       <hr />
       <h2> Customer ID: {customer.id}</h2>
       <h2> Item: {customer.item}</h2>

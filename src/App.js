@@ -8,15 +8,14 @@ import Technician from './components/Technician'
 import TechiesCustomer from './components/TechiesCustomer'
 import NavBar from './components/NavBar';
 import CustomerForm from './components/CustomerForm';
-import CustomerList from './components/CustomerList'
+import CustomerList from './components/CustomerList';
+
 
 function App() {
 
   const [techies, setTechies] = useState([])
   const [customers, setCustomers] = useState([])
-  const [searchText, setSearchText] = useState("")
-  const [customerfilter, setCustomerFilter] = useState()
-
+  
   useEffect(()=> {
     fetch('http://localhost:9292/technicians')
     .then(res => res.json())
@@ -53,11 +52,8 @@ function App() {
     setTechies(newListOfTechies)
   }
 
-  // const displayedCustomers = customers.filter((customer)=> {
 
-  // }) 
-  // This variable will be used for a search bar/filtering ability
-  // Refer to Chatterbox lab for template and use nullish coalescing or logical and operator(??, &&)
+  
   
   return (
     <div className="App">
@@ -84,6 +80,7 @@ function App() {
             <Route path='/customers/:id' element={<TechiesCustomer />} />
             <Route path='/customers' element={<CustomerList 
               customers={customers} 
+             
               />} 
             />
           </Routes>
@@ -94,3 +91,39 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+// import React from 'react'
+// const [searchCustomers, setSearchCustomers] = useState("")
+  
+
+// Props for CustomerList to pass down:
+// search={searchCustomers}
+// setSearch={setSearchCustomers}
+
+//  function Search({search, setSearch}) {
+//   return (
+//   <nav>
+
+//         <input
+//             name="customer-search"
+//             type="text"
+//             value={search}
+//             onChange={e => setSearch(e.target.value)}
+
+//         >
+        
+//         </input>
+//   </nav>
+    
+//   )
+// }
+
+// export default Search
+
+// const customerDisplay = customers.filter((customer)=> {
+//   customer?.item?.toLowerCase().includes(searchCustomers?.toLowerCase())
+// }) 

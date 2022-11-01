@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import TechiesCustomer from './TechiesCustomer'
 import EditTechnician from './EditTechnician'
 
@@ -11,6 +12,7 @@ import {useParams} from 'react-router-dom'
   const [isEditing, setIsEditing] = useState(false)
 
   const params = useParams()
+  const navigate = useNavigate()
 
   useEffect(()=>{
     fetch(`http://localhost:9292/technicians/${params.id}`)
@@ -23,6 +25,7 @@ import {useParams} from 'react-router-dom'
       method: 'DELETE',
     })
     onDeleteTechie(params.id)
+    navigate('/technicians')
   }
 
   function toggleEditScreen(){

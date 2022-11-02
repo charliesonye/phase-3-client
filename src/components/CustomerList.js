@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Customer from './Customer'
 
 
@@ -10,16 +10,12 @@ function CustomerList({customers}) {
         <Customer 
         key={customer.id} 
         customer={customer} 
-       
-         
         />
       ))
 
   return (
-    <div>
-       
-        {customersList}
-      
+    <div> 
+     {customersList}
     </div>
   )
 }

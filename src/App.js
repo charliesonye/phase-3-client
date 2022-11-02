@@ -15,6 +15,7 @@ function App() {
 
   const [techies, setTechies] = useState([])
   const [customers, setCustomers] = useState([])
+ 
   
   useEffect(()=> {
     fetch('http://localhost:9292/technicians')
@@ -44,7 +45,7 @@ function App() {
         return techie
       }
     })
-    setCustomers(updatedTechies)
+    setTechies(updatedTechies)
   }
  
   function handleDeleteTechie(id){

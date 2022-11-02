@@ -19,7 +19,7 @@ import {useParams, useNavigate} from 'react-router-dom'
     .then(res => res.json())
     .then(data => {
       onUpdateTechie(data)
-      navigate(`/technicians`)
+      navigate('/technicians')
     })
     
   }

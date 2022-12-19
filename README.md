@@ -25,7 +25,7 @@ The technologies used within this app:
 ## Setup
 To run locally:
 ```
-$ cd p3-project
+$ cd phase-3-client
 $ npm install
 $ npm start
 

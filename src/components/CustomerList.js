@@ -15,6 +15,8 @@ function CustomerList({customers}) {
 
   return (
     <div> 
+      <h3 style={{color: 'white'}}><u>Search for Customer File:</u></h3>
+      <input placeholder='Enter Customer Name'/>
      {customersList}
     </div>
   )

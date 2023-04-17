@@ -15,7 +15,8 @@ function App() {
 
   const [techies, setTechies] = useState([])
   const [customers, setCustomers] = useState([])
- 
+  const [searchText, setSearchText] = useState([])
+
   
   useEffect(()=> {
     fetch('http://localhost:9292/technicians')
@@ -35,6 +36,12 @@ function App() {
 
   function handleAddTechie(newTechie){
     setTechies([...techies, newTechie])
+  }
+
+  const SearchInput = (e)=> {
+
+    let lowerCaseInput = e.target.value.toLowerCase()
+    setSearchText(lowerCaseInput)
   }
   
   function handleUpdateTechie(updatedObj){
@@ -81,7 +88,8 @@ function App() {
             <Route path='/customers/:id' element={<TechiesCustomer />} />
             <Route path='/customers' element={<CustomerList 
               customers={customers} 
-             
+              lowerCaseSearchText={SearchInput}
+              searchText={searchText}
               />} 
             />
           </Routes>

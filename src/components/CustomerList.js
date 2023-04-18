@@ -3,7 +3,7 @@ import Customer from './Customer'
 
 
 
-function CustomerList({customers, searchText, lowerCaseSearchText}) {
+function CustomerList({customers, searchText, setSearchText, lowerCaseSearchText}) {
   
 //   const filteredData = data.filter((el) => {
 //     //if no input the return the original
@@ -15,7 +15,17 @@ function CustomerList({customers, searchText, lowerCaseSearchText}) {
 //         return el.text.toLowerCase().includes(props.input)
 //     }
 // })
- 
+  
+//   const filteredCustomers = customers.filter((customer)=> {
+//       if (searchText === '') {
+//         return customer
+//       } else if (customer.name.toLowerCase().includes(searchText.toLowerCase())){
+//         return customer
+//       }
+// }) 
+
+// **Add FilteredCustomers variable to customer list variable to complete search functionality
+
     const customersList = [...customers].reverse().map(customer =>(
         <Customer 
         key={customer.id} 
@@ -26,7 +36,10 @@ function CustomerList({customers, searchText, lowerCaseSearchText}) {
   return (
     <div> 
       <h3 style={{color: 'white'}}><u>Search for Customer File:</u></h3>
-      <input placeholder='Enter Customer Name'/>
+      <input 
+        placeholder='Enter Customer Name'
+        onChange={(e)=> setSearchText(e.target.value) }      
+      />
      {customersList}
     </div>
   )
@@ -45,7 +58,7 @@ export default CustomerList
 
 
 
-{/* <form>
+/*{<form>
         <h3>Filter:</h3>
         <select> 
           <option >Select Status</option>
@@ -54,7 +67,7 @@ export default CustomerList
 
         </select>
 
-        </form> */}
+        </form> }*/
 
  //  const [resolved, setResolved] = useState("Resolved")
   //  const [pending, setPending] = useState("Pending")

@@ -90,6 +90,7 @@ function App() {
               customers={customers} 
               lowerCaseSearchText={SearchInput}
               searchText={searchText}
+              setSearchText={setSearchText}
               />} 
             />
           </Routes>

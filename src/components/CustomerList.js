@@ -4,7 +4,7 @@ import Customer from './Customer'
 
 
 function CustomerList({customers, searchText, setSearchText, lowerCaseSearchText}) {
-  
+
 //   const filteredData = data.filter((el) => {
 //     //if no input the return the original
 //     if (props.input === '') {
@@ -16,22 +16,24 @@ function CustomerList({customers, searchText, setSearchText, lowerCaseSearchText
 //     }
 // })
   
-//   const filteredCustomers = customers.filter((customer)=> {
-//       if (searchText === '') {
-//         return customer
-//       } else if (customer.name.toLowerCase().includes(searchText.toLowerCase())){
-//         return customer
-//       }
-// }) 
+  const filteredCustomers = [...customers]?.filter((customer)=> {
+      if (searchText === '') {
+        return customer
+      } else if (customer.name.toLowerCase().includes(searchText.toLowerCase())) {
+        return customer
+      }
+      return false
+}) 
 
 // **Add FilteredCustomers variable to customer list variable to complete search functionality
 
-    const customersList = [...customers].reverse().map(customer =>(
+    const customersList = filteredCustomers.reverse().map(customer =>(
         <Customer 
         key={customer.id} 
         customer={customer} 
         />
       ))
+      
 
   return (
     <div> 

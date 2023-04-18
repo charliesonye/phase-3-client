@@ -15,7 +15,7 @@ function App() {
 
   const [techies, setTechies] = useState([])
   const [customers, setCustomers] = useState([])
-  const [searchText, setSearchText] = useState([])
+  const [searchText, setSearchText] = useState('')
 
   
   useEffect(()=> {
@@ -30,6 +30,7 @@ function App() {
     .then(data => setCustomers(data))
 }, [])
   
+
   function handleAddCustomer(newCustomer){
     setCustomers([...customers, newCustomer])
   }
@@ -61,7 +62,7 @@ function App() {
   }
 
 
-  
+   
   
   return (
     <div className="App">

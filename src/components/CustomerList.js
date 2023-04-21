@@ -3,7 +3,7 @@ import Customer from './Customer'
 
 
 
-function CustomerList({customers, searchText, setSearchText, lowerCaseSearchText}) {
+function CustomerList({customers, searchText, setSearchText}) {
 
 //   const filteredData = data.filter((el) => {
 //     //if no input the return the original

@@ -38,12 +38,6 @@ function App() {
   function handleAddTechie(newTechie){
     setTechies([...techies, newTechie])
   }
-
-  const SearchInput = (e)=> {
-
-    let lowerCaseInput = e.target.value.toLowerCase()
-    setSearchText(lowerCaseInput)
-  }
   
   function handleUpdateTechie(updatedObj){
     const updatedTechies = techies.map((techie) =>{
@@ -89,7 +83,6 @@ function App() {
             <Route path='/customers/:id' element={<TechiesCustomer />} />
             <Route path='/customers' element={<CustomerList 
               customers={customers} 
-              lowerCaseSearchText={SearchInput}
               searchText={searchText}
               setSearchText={setSearchText}
               />} 
